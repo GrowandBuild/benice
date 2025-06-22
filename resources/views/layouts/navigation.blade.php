@@ -13,7 +13,7 @@
                             <i class="fas fa-bars text-2xl"></i>
                         </button>
                         <a href="{{ url('/') }}" class="flex-shrink-0">
-                            <img src="{{ asset('newlogohorizontal.png') }}" alt="BE NICE Logo" class="h-10 sm:h-12 w-auto object-contain filter brightness-110 contrast-125 drop-shadow-lg">
+                            <img src="{{ asset('newlogohorizontal.png') }}" alt="BE NICE Logo" class="h-10 sm:h-12 w-auto object-contain">
                         </a>
                     </div>
                     
