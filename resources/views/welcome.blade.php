@@ -1,124 +1,126 @@
-<x-app-layout>
-    <div class="bg-gray-50">
-        <!-- Hero Section -->
-        <div class="relative bg-gray-900 flex items-center min-h-[60vh] md:min-h-screen">
-            <div class="absolute inset-0 z-0">
-                <img src="{{ asset('deusabanner.png') }}" alt="Deusa" class="w-full h-full object-cover opacity-40">
-            </div>
-            <div class="absolute inset-0 bg-black/50 z-10"></div>
-            <div class="relative z-20 text-center text-white max-w-4xl mx-auto p-4">
-                <h1 class="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tighter leading-tight" style="font-family: 'Trajan Pro', serif; text-shadow: 2px 2px 8px rgba(0,0,0,0.5);">
-                    <span class="egyptian-gold-shine bg-clip-text text-transparent">BE NICE</span> HYDRATE
-                </h1>
-                <p class="mt-4 text-base sm:text-lg md:text-xl max-w-2xl mx-auto text-gray-200">
-                    Sua dose diária de inspiração e hidratação, com um toque de personalidade gravado a laser.
-                </p>
-                <div class="mt-8 md:mt-10">
-                    <a href="#products" class="btn-primary text-base md:text-lg px-8 py-3 md:px-10 md:py-4 shadow-lg hover:shadow-xl transition-shadow duration-300">Explore Nossas Garrafas</a>
-                </div>
+@extends('layouts.home')
+
+@section('content')
+<div class="bg-gray-50">
+    <!-- Hero Section -->
+    <div class="relative bg-gray-900 flex items-center min-h-[60vh] md:min-h-screen">
+        <div class="absolute inset-0 z-0">
+            <img src="{{ asset('deusabanner.png') }}" alt="Deusa" class="w-full h-full object-cover opacity-40">
+        </div>
+        <div class="absolute inset-0 bg-black/50 z-10"></div>
+        <div class="relative z-20 text-center text-white max-w-4xl mx-auto p-4">
+            <h1 class="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tighter leading-tight" style="font-family: 'Trajan Pro', serif; text-shadow: 2px 2px 8px rgba(0,0,0,0.5);">
+                <span class="egyptian-gold-shine bg-clip-text text-transparent">BE NICE</span> HYDRATE
+            </h1>
+            <p class="mt-4 text-base sm:text-lg md:text-xl max-w-2xl mx-auto text-gray-200">
+                Sua dose diária de inspiração e hidratação, com um toque de personalidade gravado a laser.
+            </p>
+            <div class="mt-8 md:mt-10">
+                <a href="#products" class="btn-primary text-base md:text-lg px-8 py-3 md:px-10 md:py-4 shadow-lg hover:shadow-xl transition-shadow duration-300">Explore Nossas Garrafas</a>
             </div>
         </div>
+    </div>
 
-        <!-- Category Quick-Nav -->
-        @if($categories->isNotEmpty())
-        <div class="bg-white py-6 sm:py-8">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
-                    @php
-                        $icons = ['fa-wine-bottle', 'fa-heartbeat', 'fa-gift', 'fa-headset'];
-                    @endphp
-                    @foreach($categories as $index => $category)
-                    <a href="#" class="group">
-                        <div class="flex flex-col items-center p-3 rounded-lg hover:bg-amber-50 transition-colors duration-300">
-                            <div class="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-amber-100 to-orange-200 rounded-full mb-3 group-hover:scale-110 transition-transform duration-300">
-                               <i class="fas {{ $icons[$index % count($icons)] }} text-2xl text-amber-700"></i>
-                            </div>
-                            <h3 class="font-semibold text-sm text-gray-700 group-hover:text-amber-800">{{ $category->name }}</h3>
+    <!-- Category Quick-Nav -->
+    @if($categories->isNotEmpty())
+    <div class="bg-white py-6 sm:py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+                @php
+                    $icons = ['fa-wine-bottle', 'fa-heartbeat', 'fa-gift', 'fa-headset'];
+                @endphp
+                @foreach($categories as $index => $category)
+                <a href="#" class="group">
+                    <div class="flex flex-col items-center p-3 rounded-lg hover:bg-amber-50 transition-colors duration-300">
+                        <div class="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-amber-100 to-orange-200 rounded-full mb-3 group-hover:scale-110 transition-transform duration-300">
+                           <i class="fas {{ $icons[$index % count($icons)] }} text-2xl text-amber-700"></i>
                         </div>
-                    </a>
-                    @endforeach
-                </div>
+                        <h3 class="font-semibold text-sm text-gray-700 group-hover:text-amber-800">{{ $category->name }}</h3>
+                    </div>
+                </a>
+                @endforeach
             </div>
         </div>
-        @endif
+    </div>
+    @endif
 
 
-        <!-- Featured Products -->
-        <div id="products" class="py-12 md:py-20 egyptian-pattern">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-10 md:mb-12">
-                    <h2 class="text-2xl md:text-4xl font-bold text-[#8B4513]">Nossos Produtos</h2>
-                    <p class="mt-2 text-md md:text-lg text-[#A0522D]">Descubra a combinação perfeita de estilo e funcionalidade.</p>
-                </div>
-                
-                <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-                    @foreach ($products as $product)
-                    @php
-                        $firstVariant = $product->variants->first();
-                        $totalStock = $product->variants->sum('stock');
-                    @endphp
-                    <a href="{{ route('products.show', $product) }}" class="product-card bg-white rounded-lg shadow-md overflow-hidden border border-amber-100/50 flex flex-col group">
-                        <div class="relative overflow-hidden">
-                            @if($firstVariant && $firstVariant->image_url)
-                                <img src="{{ $firstVariant->image_url }}" alt="{{ $product->name }}" class="w-full h-48 sm:h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+    <!-- Featured Products -->
+    <div id="products" class="py-12 md:py-20 egyptian-pattern">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10 md:mb-12">
+                <h2 class="text-2xl md:text-4xl font-bold text-[#8B4513]">Nossos Produtos</h2>
+                <p class="mt-2 text-md md:text-lg text-[#A0522D]">Descubra a combinação perfeita de estilo e funcionalidade.</p>
+            </div>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                @foreach ($products as $product)
+                @php
+                    $firstVariant = $product->variants->first();
+                    $totalStock = $product->variants->sum('stock');
+                @endphp
+                <a href="{{ route('products.show', $product) }}" class="product-card bg-white rounded-lg shadow-md overflow-hidden border border-amber-100/50 flex flex-col group">
+                    <div class="relative overflow-hidden">
+                        @if($firstVariant && $firstVariant->image_url)
+                            <img src="{{ $firstVariant->image_url }}" alt="{{ $product->name }}" class="w-full h-48 sm:h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                        @else
+                            <div class="w-full h-48 sm:h-64 bg-gray-200 flex items-center justify-center">
+                                <i class="fas fa-camera text-4xl text-gray-400"></i>
+                            </div>
+                        @endif
+                        
+                        @if($totalStock <= 0)
+                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center">
+                                <span class="text-white font-bold text-sm tracking-widest">ESGOTADO</span>
+                            </div>
+                        @endif
+                        <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <button class="w-8 h-8 bg-white/80 rounded-full flex items-center justify-center shadow-md hover:bg-white hover:scale-110 transition-transform duration-200">
+                                <i class="far fa-heart text-gray-700"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-3 sm:p-4 flex flex-col flex-grow">
+                        <h4 class="font-semibold text-sm sm:text-base mb-2 text-[#8B4513] truncate group-hover:text-amber-600" title="{{ $product->name }}">{{ $product->name }}</h4>
+                        <div class="mt-auto pt-2">
+                            @if($firstVariant)
+                                <span class="price text-lg sm:text-xl">R$ {{ number_format($firstVariant->price, 2, ',', '.') }}</span>
                             @else
-                                <div class="w-full h-48 sm:h-64 bg-gray-200 flex items-center justify-center">
-                                    <i class="fas fa-camera text-4xl text-gray-400"></i>
-                                </div>
+                                <span class="text-gray-500 text-sm">Ver opções</span>
                             @endif
-                            
-                            @if($totalStock <= 0)
-                                <div class="absolute inset-0 bg-black/60 flex items-center justify-center">
-                                    <span class="text-white font-bold text-sm tracking-widest">ESGOTADO</span>
-                                </div>
-                            @endif
-                            <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <button class="w-8 h-8 bg-white/80 rounded-full flex items-center justify-center shadow-md hover:bg-white hover:scale-110 transition-transform duration-200">
-                                    <i class="far fa-heart text-gray-700"></i>
-                                </button>
-                            </div>
                         </div>
-                        <div class="p-3 sm:p-4 flex flex-col flex-grow">
-                            <h4 class="font-semibold text-sm sm:text-base mb-2 text-[#8B4513] truncate group-hover:text-amber-600" title="{{ $product->name }}">{{ $product->name }}</h4>
-                            <div class="mt-auto pt-2">
-                                @if($firstVariant)
-                                    <span class="price text-lg sm:text-xl">R$ {{ number_format($firstVariant->price, 2, ',', '.') }}</span>
-                                @else
-                                    <span class="text-gray-500 text-sm">Ver opções</span>
-                                @endif
-                            </div>
-                        </div>
-                    </a>
-                    @endforeach
-                </div>
+                    </div>
+                </a>
+                @endforeach
             </div>
         </div>
+    </div>
 
-        <!-- How it works -->
-        <div class="py-12 md:py-20 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-10 md:mb-12">
-                    <h2 class="text-2xl md:text-4xl font-bold text-[#8B4513]">Como Funciona</h2>
-                    <p class="mt-2 text-md md:text-lg text-[#A0522D]">Personalize sua garrafa em 3 passos simples.</p>
+    <!-- How it works -->
+    <div class="py-12 md:py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10 md:mb-12">
+                <h2 class="text-2xl md:text-4xl font-bold text-[#8B4513]">Como Funciona</h2>
+                <p class="mt-2 text-md md:text-lg text-[#A0522D]">Personalize sua garrafa em 3 passos simples.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 text-center space-y-10 md:space-y-0">
+                <div class="flex flex-col items-center">
+                    <div class="egyptian-gold text-white w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center text-3xl font-bold mb-4 shadow-lg transform hover:scale-110 transition-transform duration-300">1</div>
+                    <h3 class="text-lg sm:text-xl font-semibold text-[#8B4513] mb-2">Escolha seu Modelo</h3>
+                    <p class="text-gray-600 text-sm sm:text-base">Navegue por nossa coleção e encontre a garrafa que mais combina com você.</p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 text-center space-y-10 md:space-y-0">
-                    <div class="flex flex-col items-center">
-                        <div class="egyptian-gold text-white w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center text-3xl font-bold mb-4 shadow-lg transform hover:scale-110 transition-transform duration-300">1</div>
-                        <h3 class="text-lg sm:text-xl font-semibold text-[#8B4513] mb-2">Escolha seu Modelo</h3>
-                        <p class="text-gray-600 text-sm sm:text-base">Navegue por nossa coleção e encontre a garrafa que mais combina com você.</p>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <div class="egyptian-gold text-white w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center text-3xl font-bold mb-4 shadow-lg transform hover:scale-110 transition-transform duration-300">2</div>
-                        <h3 class="text-lg sm:text-xl font-semibold text-[#8B4513] mb-2">Personalize com Laser</h3>
-                        <p class="text-gray-600 text-sm sm:text-base">Adicione seu nome, uma frase ou um ícone. A gravação a laser garante um acabamento perfeito e duradouro.</p>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <div class="egyptian-gold text-white w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center text-3xl font-bold mb-4 shadow-lg transform hover:scale-110 transition-transform duration-300">3</div>
-                        <h3 class="text-lg sm:text-xl font-semibold text-[#8B4513] mb-2">Receba em Casa</h3>
-                        <p class="text-gray-600 text-sm sm:text-base">Finalize seu pedido e aguarde sua HydrateLife exclusiva chegar no conforto da sua casa.</p>
-                    </div>
+                <div class="flex flex-col items-center">
+                    <div class="egyptian-gold text-white w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center text-3xl font-bold mb-4 shadow-lg transform hover:scale-110 transition-transform duration-300">2</div>
+                    <h3 class="text-lg sm:text-xl font-semibold text-[#8B4513] mb-2">Personalize com Laser</h3>
+                    <p class="text-gray-600 text-sm sm:text-base">Adicione seu nome, uma frase ou um ícone. A gravação a laser garante um acabamento perfeito e duradouro.</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="egyptian-gold text-white w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center text-3xl font-bold mb-4 shadow-lg transform hover:scale-110 transition-transform duration-300">3</div>
+                    <h3 class="text-lg sm:text-xl font-semibold text-[#8B4513] mb-2">Receba em Casa</h3>
+                    <p class="text-gray-600 text-sm sm:text-base">Finalize seu pedido e aguarde sua HydrateLife exclusiva chegar no conforto da sua casa.</p>
                 </div>
             </div>
         </div>
     </div>
-</x-app-layout> 
+</div>
+@endsection 
