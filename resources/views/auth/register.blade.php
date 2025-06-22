@@ -10,11 +10,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .egyptian-pattern { background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+        .btn-primary { background: #D4AF37; color: white; padding: 12px 24px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; transition: all 0.3s ease; }
+        .btn-primary:hover { background: #B8860B; }
     </style>
 </head>
 <body class="min-h-screen bg-gradient-to-br from-amber-900 via-orange-800 to-yellow-700">
     <div class="min-h-screen flex items-center justify-center p-4">
-        <div class="w-full max-w-4xl bg-white/10 backdrop-blur-md rounded-2xl border border-amber-500/30 overflow-hidden shadow-2xl">
+        <div class="w-full max-w-4xl">
             <div class="flex flex-col lg:flex-row">
                 <!-- Banner Lateral -->
                 <div class="lg:w-1/2 bg-gradient-to-br from-amber-600 via-orange-500 to-yellow-500 p-8 lg:p-12 flex items-center justify-center">
