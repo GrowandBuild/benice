@@ -5,14 +5,14 @@
     <!-- Hero Section -->
     <div class="relative bg-gray-900 flex items-center min-h-[70vh] md:min-h-screen">
         <div class="absolute inset-0 z-0">
-            <img src="{{ asset('deusabanner.png') }}" alt="Deusa" class="w-full h-full object-cover opacity-30 md:opacity-40">
+            <img src="{{ asset('deusabanner.png') }}" alt="Deusa" class="w-full h-full object-cover opacity-50 md:opacity-60">
         </div>
-        <div class="absolute inset-0 bg-black/40 md:bg-black/50 z-10"></div>
+        <div class="absolute inset-0 bg-black/30 md:bg-black/40 z-10"></div>
         <div class="relative z-20 text-center text-white max-w-4xl mx-auto p-4 md:p-8">
             <h1 class="text-5xl sm:text-6xl lg:text-8xl font-extrabold tracking-tighter leading-tight mb-6" style="font-family: 'Trajan Pro', serif; text-shadow: 3px 3px 12px rgba(0,0,0,0.7);">
                 <span class="egyptian-gold-shine bg-clip-text text-transparent">BE NICE</span>
             </h1>
-            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8 text-amber-200" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.6);">
+            <h2 class="text-xl sm:text-2xl lg:text-3xl font-light mb-8 text-amber-100 tracking-widest" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.6);">
                 HYDRATE
             </h2>
             <div class="mt-8 md:mt-12">
