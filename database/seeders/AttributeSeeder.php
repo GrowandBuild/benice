@@ -16,31 +16,43 @@ class AttributeSeeder extends Seeder
     public function run(): void
     {
         // Criar atributo Cor
-        $colorAttribute = Attribute::create([
-            'name' => 'Cor',
-            'slug' => Str::slug('Cor'),
-        ]);
+        $colorAttribute = Attribute::updateOrCreate(
+            ['slug' => Str::slug('Cor')],
+            ['name' => 'Cor']
+        );
 
         $colors = ['Preto', 'Azul', 'Vermelho', 'Verde', 'Rosa', 'Roxo', 'Laranja', 'Amarelo'];
         foreach ($colors as $color) {
-            AttributeValue::create([
-                'attribute_id' => $colorAttribute->id,
-                'value' => $color,
-            ]);
+            AttributeValue::updateOrCreate(
+                [
+                    'attribute_id' => $colorAttribute->id,
+                    'value' => $color
+                ],
+                [
+                    'attribute_id' => $colorAttribute->id,
+                    'value' => $color
+                ]
+            );
         }
 
         // Criar atributo Tamanho
-        $sizeAttribute = Attribute::create([
-            'name' => 'Tamanho',
-            'slug' => Str::slug('Tamanho'),
-        ]);
+        $sizeAttribute = Attribute::updateOrCreate(
+            ['slug' => Str::slug('Tamanho')],
+            ['name' => 'Tamanho']
+        );
 
         $sizes = ['P', 'M', 'G', 'GG'];
         foreach ($sizes as $size) {
-            AttributeValue::create([
-                'attribute_id' => $sizeAttribute->id,
-                'value' => $size,
-            ]);
+            AttributeValue::updateOrCreate(
+                [
+                    'attribute_id' => $sizeAttribute->id,
+                    'value' => $size
+                ],
+                [
+                    'attribute_id' => $sizeAttribute->id,
+                    'value' => $size
+                ]
+            );
         }
     }
 }

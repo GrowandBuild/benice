@@ -21,19 +21,29 @@ class UserSeeder extends Seeder
         Schema::enableForeignKeyConstraints();
 
         // Cria o usuário Administrador
-        $admin = User::create([
-            'name' => 'Admin',
-            'email' => 'contato.growandbuild@gmail.com',
-            'password' => Hash::make('password'),
-        ]);
-        $admin->assignRole('admin');
+        $admin = User::updateOrCreate(
+            ['email' => 'contato.growandbuild@gmail.com'],
+            [
+                'name' => 'Admin',
+                'password' => Hash::make('password'),
+            ]
+        );
+        
+        if (!$admin->hasRole('admin')) {
+            $admin->assignRole('admin');
+        }
 
         // Cria o usuário comum
-        $user = User::create([
-            'name' => 'Usuário',
-            'email' => 'alexandrepessoalrodrigues@gmail.com',
-            'password' => Hash::make('password'),
-        ]);
-        $user->assignRole('user');
+        $user = User::updateOrCreate(
+            ['email' => 'alexandrepessoalrodrigues@gmail.com'],
+            [
+                'name' => 'Usuário',
+                'password' => Hash::make('password'),
+            ]
+        );
+        
+        if (!$user->hasRole('user')) {
+            $user->assignRole('user');
+        }
     }
 }

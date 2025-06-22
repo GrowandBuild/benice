@@ -37,16 +37,20 @@ class ProductSeeder extends Seeder
 
         for ($i = 1; $i <= 20; $i++) {
             $name = 'Produto de Exemplo ' . $i;
-            Product::create([
-                'name' => $name,
-                'slug' => Str::slug($name),
-                'description' => 'Esta é uma descrição de exemplo para o produto ' . $i . '. O produto é de alta qualidade e perfeito para suas necessidades.',
-                'price' => rand(20, 200) + (rand(0, 99) / 100), // Preço entre 20.00 e 200.99
-                'original_price' => rand(250, 400),
-                'stock' => rand(0, 100),
-                'category_id' => $categories->isNotEmpty() ? $categories->random()->id : null,
-                'image' => $sampleImages[array_rand($sampleImages)],
-            ]);
+            $slug = Str::slug($name);
+            
+            Product::updateOrCreate(
+                ['slug' => $slug],
+                [
+                    'name' => $name,
+                    'description' => 'Esta é uma descrição de exemplo para o produto ' . $i . '. O produto é de alta qualidade e perfeito para suas necessidades.',
+                    'price' => rand(20, 200) + (rand(0, 99) / 100), // Preço entre 20.00 e 200.99
+                    'original_price' => rand(250, 400),
+                    'stock' => rand(0, 100),
+                    'category_id' => $categories->isNotEmpty() ? $categories->random()->id : null,
+                    'image' => $sampleImages[array_rand($sampleImages)],
+                ]
+            );
         }
     }
 }
