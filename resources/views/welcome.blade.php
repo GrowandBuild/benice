@@ -3,39 +3,50 @@
 @section('content')
 <div class="bg-gray-50">
     <!-- Hero Section -->
-    <div class="relative bg-gray-900 flex items-center min-h-[60vh] md:min-h-screen">
+    <div class="relative bg-gray-900 flex items-center min-h-[70vh] md:min-h-screen">
         <div class="absolute inset-0 z-0">
-            <img src="{{ asset('deusabanner.png') }}" alt="Deusa" class="w-full h-full object-cover opacity-40">
+            <img src="{{ asset('deusabanner.png') }}" alt="Deusa" class="w-full h-full object-cover opacity-30 md:opacity-40">
         </div>
-        <div class="absolute inset-0 bg-black/50 z-10"></div>
-        <div class="relative z-20 text-center text-white max-w-4xl mx-auto p-4">
-            <h1 class="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tighter leading-tight" style="font-family: 'Trajan Pro', serif; text-shadow: 2px 2px 8px rgba(0,0,0,0.5);">
-                <span class="egyptian-gold-shine bg-clip-text text-transparent">BE NICE</span> HYDRATE
+        <div class="absolute inset-0 bg-black/40 md:bg-black/50 z-10"></div>
+        <div class="relative z-20 text-center text-white max-w-4xl mx-auto p-4 md:p-8">
+            <h1 class="text-5xl sm:text-6xl lg:text-8xl font-extrabold tracking-tighter leading-tight mb-6" style="font-family: 'Trajan Pro', serif; text-shadow: 3px 3px 12px rgba(0,0,0,0.7);">
+                <span class="egyptian-gold-shine bg-clip-text text-transparent">BE NICE</span>
             </h1>
-            <p class="mt-4 text-base sm:text-lg md:text-xl max-w-2xl mx-auto text-gray-200">
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8 text-amber-200" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.6);">
+                HYDRATE
+            </h2>
+            <div class="mt-8 md:mt-12">
+                <a href="#products" class="btn-primary text-lg md:text-xl px-10 py-4 md:px-12 md:py-5 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105">
+                    Explore Nossas Garrafas
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Brand Description Section -->
+    <div class="bg-gradient-to-br from-amber-50 to-orange-50 py-12 md:py-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-lg md:text-xl lg:text-2xl text-gray-700 leading-relaxed font-medium">
                 Sua dose diária de inspiração e hidratação, com um toque de personalidade gravado a laser.
             </p>
-            <div class="mt-8 md:mt-10">
-                <a href="#products" class="btn-primary text-base md:text-lg px-8 py-3 md:px-10 md:py-4 shadow-lg hover:shadow-xl transition-shadow duration-300">Explore Nossas Garrafas</a>
-            </div>
         </div>
     </div>
 
     <!-- Category Quick-Nav -->
     @if($categories->isNotEmpty())
-    <div class="bg-white py-6 sm:py-8">
+    <div class="bg-white py-8 sm:py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6 text-center">
                 @php
                     $icons = ['fa-wine-bottle', 'fa-heartbeat', 'fa-gift', 'fa-headset'];
                 @endphp
                 @foreach($categories as $index => $category)
                 <a href="#" class="group">
-                    <div class="flex flex-col items-center p-3 rounded-lg hover:bg-amber-50 transition-colors duration-300">
-                        <div class="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-amber-100 to-orange-200 rounded-full mb-3 group-hover:scale-110 transition-transform duration-300">
-                           <i class="fas {{ $icons[$index % count($icons)] }} text-2xl text-amber-700"></i>
+                    <div class="flex flex-col items-center p-4 md:p-6 rounded-xl hover:bg-amber-50 transition-all duration-300 transform hover:scale-105">
+                        <div class="flex items-center justify-center w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-amber-100 to-orange-200 rounded-full mb-3 group-hover:scale-110 transition-transform duration-300">
+                           <i class="fas {{ $icons[$index % count($icons)] }} text-2xl md:text-3xl text-amber-700"></i>
                         </div>
-                        <h3 class="font-semibold text-sm text-gray-700 group-hover:text-amber-800">{{ $category->name }}</h3>
+                        <h3 class="font-semibold text-sm md:text-base text-gray-700 group-hover:text-amber-800">{{ $category->name }}</h3>
                     </div>
                 </a>
                 @endforeach
@@ -43,7 +54,6 @@
         </div>
     </div>
     @endif
-
 
     <!-- Featured Products -->
     <div id="products" class="py-12 md:py-20 egyptian-pattern">
