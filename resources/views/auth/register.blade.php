@@ -38,7 +38,7 @@
                 <div class="lg:w-1/2 p-8 lg:p-12 bg-white/5">
                     <!-- Logo -->
                     <div class="text-center mb-8">
-                        <img src="{{ asset('newlogohorizontal.png') }}" alt="BE NICE Logo" class="mx-auto h-16 w-auto mb-4">
+                        <img src="{{ asset('newlogohorizontal.png') }}" alt="BE NICE Logo" class="mx-auto h-16 w-auto mb-4 filter brightness-110 contrast-125 drop-shadow-lg">
                         <h1 class="text-2xl font-black text-white mb-2">CRIAR CONTA</h1>
                         <p class="text-gray-300">Preencha seus dados</p>
                     </div>

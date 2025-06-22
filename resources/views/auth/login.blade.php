@@ -20,7 +20,7 @@
         <div class="w-full max-w-md">
             <!-- Logo -->
             <div class="text-center mb-8">
-                <img src="{{ asset('newlogohorizontal.png') }}" alt="BE NICE Logo" class="mx-auto h-16 w-auto mb-4">
+                <img src="{{ asset('newlogohorizontal.png') }}" alt="BE NICE Logo" class="mx-auto h-16 w-auto mb-4 filter brightness-110 contrast-125 drop-shadow-lg">
                 <h1 class="text-2xl font-black text-white mb-2">ACESSAR CONTA</h1>
                 <p class="text-gray-300">Entre com suas credenciais</p>
             </div>

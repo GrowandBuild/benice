@@ -50,7 +50,7 @@
         <div class="max-w-7xl mx-auto px-4 py-12">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
                 <div>
-                    <img src="{{ asset('newlogohorizontal.png') }}" alt="BE NICE Logo" class="max-h-16 h-auto object-contain mb-4">
+                    <img src="{{ asset('newlogohorizontal.png') }}" alt="BE NICE Logo" class="max-h-16 h-auto object-contain mb-4 filter brightness-110 contrast-125 drop-shadow-lg">
                     <p class="text-sm text-white/80">Sua dose diária de inspiração e hidratação, com um toque de personalidade.</p>
                 </div>
                 <div>
