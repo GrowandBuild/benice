@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.home')
 
 @section('content')
 <div class="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">

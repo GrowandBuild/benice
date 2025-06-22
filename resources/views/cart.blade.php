@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.home')
 
 @section('content')
 <div class="min-h-screen bg-gray-100 egyptian-pattern py-12">

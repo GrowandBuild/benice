@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.home')
 
 @section('content')
 <div class="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 egyptian-pattern" x-data="{ values: {{ $attribute->values->toJson() }} }">
