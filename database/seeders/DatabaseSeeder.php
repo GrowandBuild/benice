@@ -17,11 +17,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        // User::factory(10)->create();
+
         $this->call([
             RolesAndPermissionsSeeder::class,
-            UserSeeder::class,
+            AdminUserSeeder::class,
             CategorySeeder::class,
-            // ProductSeeder::class, // Desativado para não criar produtos de exemplo
+            AttributeSeeder::class,
+            ProductSeeder::class,
+            UserSeeder::class,
         ]);
     }
 }
