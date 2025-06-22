@@ -23,7 +23,10 @@ class AppServiceProvider extends ServiceProvider
     {
         if (config('app.env') === 'production') {
             URL::forceScheme('https');
-            Vite::useManifestFilename('build/manifest.json');
+
+            if (file_exists(public_path('build/manifest.json'))) {
+                Vite::useManifestFilename('build/manifest.json');
+            }
         }
     }
 }
