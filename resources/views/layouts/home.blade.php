@@ -3,7 +3,7 @@
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HydrateLife - Garrafas Personalizadas com Marcação a Laser</title>
+    <title>BE NICE - Garrafas Personalizadas com Marcação a Laser</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -50,7 +50,7 @@
         <div class="max-w-7xl mx-auto px-4 py-12">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
                 <div>
-                    <img src="{{ asset('newlogohorizontal.png') }}" alt="HydrateLife Logo" class="max-h-16 h-auto object-contain mb-4">
+                    <img src="{{ asset('newlogohorizontal.png') }}" alt="BE NICE Logo" class="max-h-16 h-auto object-contain mb-4">
                     <p class="text-sm text-white/80">Sua dose diária de inspiração e hidratação, com um toque de personalidade.</p>
                 </div>
                 <div>
@@ -81,7 +81,7 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center border-t border-[#D4AF37]/20 pt-8">
                 <div class="text-center md:text-left text-sm text-white/80">
-                <p>&copy; {{ date('Y') }} HydrateLife. Todos os direitos reservados.</p>
+                <p>&copy; {{ date('Y') }} BE NICE. Todos os direitos reservados.</p>
                 </div>
                 <div class="flex justify-center md:justify-end items-center space-x-2">
                     <p class="text-sm text-white/80">Pagamento seguro com:</p>

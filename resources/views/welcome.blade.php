@@ -117,7 +117,7 @@
                 <div class="flex flex-col items-center">
                     <div class="egyptian-gold text-white w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center text-3xl font-bold mb-4 shadow-lg transform hover:scale-110 transition-transform duration-300">3</div>
                     <h3 class="text-lg sm:text-xl font-semibold text-[#8B4513] mb-2">Receba em Casa</h3>
-                    <p class="text-gray-600 text-sm sm:text-base">Finalize seu pedido e aguarde sua HydrateLife exclusiva chegar no conforto da sua casa.</p>
+                    <p class="text-gray-600 text-sm sm:text-base">Finalize seu pedido e aguarde sua BE NICE exclusiva chegar no conforto da sua casa.</p>
                 </div>
             </div>
         </div>

@@ -21,7 +21,7 @@
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 egyptian-pattern">
             <div class="mb-6">
                 <a href="/">
-                    <img src="{{ asset('newlogohorizontal.png') }}" alt="HydrateLife Logo" class="h-16 w-auto object-contain">
+                    <img src="{{ asset('newlogohorizontal.png') }}" alt="BE NICE Logo" class="h-16 w-auto object-contain">
                 </a>
             </div>
 
