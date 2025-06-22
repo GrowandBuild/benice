@@ -9,7 +9,7 @@
         </div>
         <div class="absolute inset-0 bg-black/30 md:bg-black/40 z-10"></div>
         <div class="relative z-20 text-center text-white max-w-4xl mx-auto p-4 md:p-8">
-            <h1 class="text-5xl sm:text-6xl lg:text-8xl font-extrabold tracking-tighter leading-tight mb-6" style="font-family: 'Trajan Pro', serif; text-shadow: 3px 3px 12px rgba(0,0,0,0.7);">
+            <h1 class="text-5xl sm:text-6xl lg:text-8xl font-extrabold tracking-tighter leading-tight mb-6 mt-8 sm:mt-0" style="font-family: 'Trajan Pro', serif; text-shadow: 3px 3px 12px rgba(0,0,0,0.7);">
                 <span class="egyptian-gold-shine bg-clip-text text-transparent">BE NICE</span>
             </h1>
             <h2 class="text-xl sm:text-2xl lg:text-3xl font-light mb-8 text-amber-100 tracking-widest" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.6);">
